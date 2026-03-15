@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crust & Co. | Authentic Pizza</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #ffe0b2;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-bottom: 3px solid #ffb74d;
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            color: #d32f2f;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Menu Section */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            gap: 2rem;
+        }
+        .menu {
+            flex: 2;
+        }
+        .menu h2 {
+            border-bottom: 2px solid #d32f2f;
+            padding-bottom: 10px;
+            color: #d32f2f;
+        }
+        .pizza-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .pizza-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .pizza-card:hover {
+            transform: translateY(-5px);
+        }
+        .pizza-card h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #f57c00;
+        }
+
+        /* Cart Section */
+        .cart {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        .cart h2 {
+            color: #d32f2f;
+            margin-top: 0;
+        }
+        .cart-items {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+        .cart-items li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-total {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            border-top: 2px solid #333;
+            padding-top: 10px;
+            margin-bottom: 20px;
+        }
+        .checkout-btn {
+            width: 100%;
+            background-color: #4caf50;
+        }
+        .checkout-btn:hover {
+            background-color: #388e3c;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🍕 Crust & Co.</h1>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Fresh out of the oven!</h2>
+        <p>Order the best artisanal pizza in town, delivered piping hot to your door.</p>
+    </section>
+
+    <div class="container">
+        <main class="menu" id="menu">
+            <h2>Our Pizzas</h2>
+            <div class="pizza-grid">
+                <div class="pizza-card">
+                    <h3>Classic Margherita</h3>
+                    <p>San Marzano tomato sauce, fresh mozzarella, basil, and extra virgin olive oil.</p>
+                    <p class="price">$12.99</p>
+                    <button onclick="addToCart('Classic Margherita', 12.99)">Add to Cart</button>
+                </div>
+                <div class="pizza-card">
+                    <h3>Pepperoni Feast</h3>
+                    <p>Double pepperoni, mozzarella cheese, and our signature rich tomato sauce.</p>
+                    <p class="price">$14.99</p>
+                    <button onclick="addToCart('Pepperoni Feast', 14.99)">Add to Cart</button>
+                </div>
+                <div class="pizza-card">
+                    <h3>Veggie Supreme</h3>
+                    <p>Bell peppers, black olives, red onions, mushrooms, and fresh tomatoes.</p>
+                    <p class="price">$13.99</p>
+                    <button onclick="addToCart('Veggie Supreme', 13.99)">Add to Cart</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="cart">
+            <h2>Your Cart</h2>
+            <ul class="cart-items" id="cart-items">
+                </ul>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="total-price">$0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Crust & Co. | Crafted with passion.</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(itemName, itemPrice) {
+            // Add item to cart array
+            cart.push({ name: itemName, price: itemPrice });
+            total += itemPrice;
+
+            // Update the UI
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+
+            // Clear current cart display
+            cartItemsContainer.innerHTML = '';
+
+            // Add each item to the list
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span>${item.name}</span> <span>$${item.price.toFixed(2)}</span>`;
+                cartItemsContainer.appendChild(li);
+            });
+
+            // Update total price
+            totalPriceElement.innerText = `$${total.toFixed(2)}`;
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty! Add some delicious pizza first.");
+            } else {
+                alert(`Thank you for your order! Your total is $${total.toFixed(2)}. We will start baking your pizza right away!`);
+                // Reset cart after checkout
+                cart = [];
+                total = 0;
+                updateCartUI();
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "9ee992c0-3831-4168-b11c-3eafd85c34b6", // The ID of this integration.
+    region: "au-syd", // The region your integration is hosted in.
+    serviceInstanceID: "e4b548de-426e-40f6-8546-6be32892f8f3", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
+            }
+        }
+    </script>
+
+</body>
+</html>
